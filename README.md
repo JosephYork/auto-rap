@@ -2,9 +2,9 @@
 *auto-rap* is a CPython application using Natural Language Processing (Spacy) and Machine Learning (TBD) to auto-generate dope rap lyrics.
 
 ## Recommended Software
-Python 3.7
-Pycharm 2018.2.2
-Spacy
+Python 3.7  
+Pycharm 2018.2.2  
+Spacy 2.0.12  
 
 ### How to Setup 
 #### Python
@@ -21,6 +21,8 @@ Spacy
 
 #### Spacy
 1. Open a Command Prompt window
-2. Type `pip install spacy`
-*Note: If you get a command not found error, confirm your Python directory has been added to your PATH by typing `echo %PATH%` and looking for an entry similar to Python\Python37-32\Scripts
-Note: If you get an error for Microsoft Visual C++ 14.0 required, navigate to the following link https://visualstudio.microsoft.com/visual-cpp-build-tools/ and download/install the build tools. Make sure to tick the box for Visual C++ build tools when installing. If this doesn't resolve the issue, run the command `pip install --upgrade setuptools` then try and pip install spacy again.
+2. Enter `pip install spacy`  
+3. Note: If you get a command not found error, confirm your Python directory has been added to your PATH by typing `echo %PATH%` and looking for an entry similar to Python\Python37-32\Scripts  
+4. Note: If you get an error for Microsoft Visual C++ 14.0 required, navigate to the following link https://visualstudio.microsoft.com/visual-cpp-build-tools/ and download/install the build tools. Make sure to tick the box for Visual C++ build tools when installing. If this doesn't resolve the issue, run the command `pip install --upgrade setuptools` then try and pip install spacy again.  
+  
+  
