@@ -5,6 +5,7 @@
 Python 3.7  
 Pycharm 2018.2.2  
 Spacy 2.0.12  
+cURL 7.61.0  
 
 ### How to Setup 
 #### Python
@@ -25,4 +26,7 @@ Spacy 2.0.12
 3. Note: If you get a command not found error, confirm your Python directory has been added to your PATH by typing `echo %PATH%` and looking for an entry similar to Python\Python37-32\Scripts  
 4. Note: If you get an error for Microsoft Visual C++ 14.0 required, navigate to the following link https://visualstudio.microsoft.com/visual-cpp-build-tools/ and download/install the build tools. Make sure to tick the box for Visual C++ build tools when installing. If this doesn't resolve the issue, run the command `pip install --upgrade setuptools` then try and pip install spacy again.  
   
-  
+#### cURL
+1. Navigate to https://curl.haxx.se/download.html
+2. Download cURL and extract it to a convenient location (eg. `C:\cURL`)
+3. Update your %PATH% variable to include the `..\cURL\bin` directory
