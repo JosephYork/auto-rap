@@ -30,3 +30,7 @@ cURL 7.61.0
 1. Navigate to https://curl.haxx.se/download.html
 2. Download cURL and extract it to a convenient location (eg. `C:\cURL`)
 3. Update your %PATH% variable to include the `..\cURL\bin` directory
+
+#### bs4 (BeautifulSoup)
+1. Open a command prompt window
+2. Enter `pip install bs4`
