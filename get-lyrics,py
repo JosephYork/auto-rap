@@ -1,0 +1,57 @@
+# Importing required libraries
+# Requests is used for the GET request for Genius
+import requests
+import os
+
+# BeautifulSoup is used for parsing the HTML response from Genius
+try:
+    from BeautifulSoup import BeautifulSoup
+except ImportError:
+    from bs4 import BeautifulSoup
+
+# This is the path location for temporary lyric files to be stored
+# Be mindful that you need to have permissions to write to the path you define below
+# Also make sure to end the path with a slash (/)
+path_location = "C:/Users/Malore/"
+
+
+# This is the cURL (equivalent) request to get the html lyrics from Genius
+def get_lyrics(url):
+    res = requests.get(url)
+    html = res.text
+    # This is the code to parse the HTML response from Genius
+    parsed_html = BeautifulSoup(html, 'html.parser')
+    input_file = open(path_location + "\\incomplete-html.txt", 'w+')
+    # This block selects just the lyrics from the HTML
+    parsed_html = parsed_html.body.find('div', attrs={'class': 'lyrics'}).text
+    input_file.write(parsed_html)
+
+
+# This block removes all lyrics beginning with a [ (ie. chorus, features, etc.)
+def remove_non_lyrics():
+    input_file = open(path_location + "\\incomplete-html.txt", "r")
+    output_file = open(path_location + "\\parsed-html.txt", "w")
+    for line in input_file:
+        if not line.lstrip().startswith("["):
+            output_file.write(line)
+    input_file.close()
+    output_file.close()
+
+
+# Remove empty lines from the parsed lyrics file
+def remove_emtpy_lines(filename):
+    with open(filename) as in_file, open(filename, 'r+') as out_file:
+        out_file.writelines(line for line in in_file if line.strip())
+        out_file.truncate()
+
+
+# Clean up to delete incomplete parsed HTML
+def del_incomplete_html():
+    if os.path.exists(path_location + "\\incomplete-html.txt"):
+        os.remove(path_location + "\\incomplete-html.txt")
+
+
+get_lyrics('https://genius.com/Drake-look-what-youve-done-lyrics')
+remove_non_lyrics()
+remove_emtpy_lines(path_location + "\\parsed-html.txt")
+del_incomplete_html()
